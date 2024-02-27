@@ -1,0 +1,26 @@
+// js/script.js
+
+(function () {
+    'use strict';
+
+    // Define an array of possible category short names
+    var categories = ['L', 'D', 'S', 'A', 'B'];
+
+    // Function to generate a random index within the range of categories array length
+    function getRandomIndex() {
+        return Math.floor(Math.random() * categories.length);
+    }
+
+    // Function to load menu items for a random category
+    function loadRandomCategory() {
+        var randomIndex = getRandomIndex();
+        var randomCategoryShortName = categories[randomIndex];
+        $dc.loadMenuItems(randomCategoryShortName);
+    }
+
+    // Event listener for clicking on the Specials tile
+    document.getElementById('specials-tile').addEventListener('click', function () {
+        loadRandomCategory();
+    });
+
+})();
